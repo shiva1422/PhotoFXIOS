@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "74ECF5A4-C5D6-4CAE-A938-54C8850D2430"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B246A0D4-2F5B-4ABF-AEC1-78C75BB3B642"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KSImageEditor/Image/KSImageLoader.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "KSImageLoader::loadImage(path)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B246A0D4-2F5B-4ABF-AEC1-78C75BB3B642 - 10406915c6260326"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  uuid = "B246A0D4-2F5B-4ABF-AEC1-78C75BB3B642 - 10406915c6260360"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  uuid = "B246A0D4-2F5B-4ABF-AEC1-78C75BB3B642 - 10406915c6260360"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  uuid = "B246A0D4-2F5B-4ABF-AEC1-78C75BB3B642 - 10406915c62605fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "308">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F0CCF73-6798-494F-8857-51EB867E545F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KSImageEditor/Image/KSImageLoader.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "KSImageLoader::loadImage(path)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7F0CCF73-6798-494F-8857-51EB867E545F - 10406915c6260305"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "7F0CCF73-6798-494F-8857-51EB867E545F - 10406915c6260305"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "7F0CCF73-6798-494F-8857-51EB867E545F - 10406915c6260305"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  uuid = "7F0CCF73-6798-494F-8857-51EB867E545F - 10406915c6260551"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "328">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5EE04F94-0302-42B5-A2B2-3146CCAA10CD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KSImageEditor/Image/KSImageLoader.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "KSImageLoader::loadImage(path)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5EE04F94-0302-42B5-A2B2-3146CCAA10CD - 10406915c626009a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  uuid = "5EE04F94-0302-42B5-A2B2-3146CCAA10CD - 10406915c6260079"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "5EE04F94-0302-42B5-A2B2-3146CCAA10CD - 10406915c6260079"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  uuid = "5EE04F94-0302-42B5-A2B2-3146CCAA10CD - 10406915c6260ad5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "360">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82B9CE99-B612-45DE-8095-0C11D068A022"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KSImageEditor/Image/KSImageLoader.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "KSImageLoader::loadImage(path)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "82B9CE99-B612-45DE-8095-0C11D068A022 - 10406915c62603ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "82B9CE99-B612-45DE-8095-0C11D068A022 - 10406915c62603ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "82B9CE99-B612-45DE-8095-0C11D068A022 - 10406915c626047a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "284">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "505C168A-6239-4004-9A93-4895F60F1D37"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KSImageEditor/Image/KSImageLoader.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "KSImageLoader::loadImage(path)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "505C168A-6239-4004-9A93-4895F60F1D37 - 10406915c6263db2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "505C168A-6239-4004-9A93-4895F60F1D37 - 10406915c6263db2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "505C168A-6239-4004-9A93-4895F60F1D37 - 10406915c6260150"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KSImageLoader::loadImage(char const*)"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/KSImageEditor/Image/KSImageLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "148">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E34DF0D2-DC31-4740-ACB2-5930AFB2B41A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFX/ViewController.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-picker:didFinishPicking:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E34DF0D2-DC31-4740-ACB2-5930AFB2B41A - f11e94cca8325eec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController picker:didFinishPicking:]"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/PhotoFX/ViewController.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "592">
+               </Location>
+               <Location
+                  uuid = "E34DF0D2-DC31-4740-ACB2-5930AFB2B41A - 26bdd45c9c0666b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[ViewController picker:didFinishPicking:]_block_invoke"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/PhotoFX/ViewController.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "E34DF0D2-DC31-4740-ACB2-5930AFB2B41A - f11e94cca8325dc3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController picker:didFinishPicking:]"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/PhotoFX/ViewController.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "564">
+               </Location>
+               <Location
+                  uuid = "E34DF0D2-DC31-4740-ACB2-5930AFB2B41A - 5aa0f3c13d00e3fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[ViewController picker:didFinishPicking:]_block_invoke"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.4.sdk/usr/include/dispatch/queue.h"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "590"
+                  endingLineNumber = "590"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6BC32568-3C61-44C4-B6F9-F3726F25C831"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFX/ViewController.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-picker:didFinishPicking:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6BC32568-3C61-44C4-B6F9-F3726F25C831 - 26bdd45c9c0667f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[ViewController picker:didFinishPicking:]_block_invoke"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/PhotoFX/ViewController.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "6BC32568-3C61-44C4-B6F9-F3726F25C831 - 1e70e9ae29a18324"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[ViewController picker:didFinishPicking:]_block_invoke_2"
+                  moduleName = "PhotoFX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kalasoft/projects/production/camstar/ios/PhotoFX/PhotoFX/ViewController.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0C1D604-18B2-489E-902C-F7E7DED9DA15"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KSImageEditor/Layer/KSLayer.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "KSLayer::addImage(path)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

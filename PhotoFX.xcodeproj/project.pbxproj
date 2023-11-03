@@ -1,0 +1,806 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C2583FFA2AD5FB64005D86B9 /* KSMetalView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C2583FF92AD5FB64005D86B9 /* KSMetalView.mm */; };
+		C28F4EA82ADFCF3D000036DD /* KSLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28F4EA62ADFCF3D000036DD /* KSLog.cpp */; };
+		C28F4EAB2ADFD46F000036DD /* FeatureList.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C28F4EAA2ADFD46F000036DD /* FeatureList.rtf */; };
+		C28F4EB22AE262A5000036DD /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28F4EAF2AE26270000036DD /* UniformTypeIdentifiers.framework */; };
+		C28F4EB62AE28795000036DD /* KSImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28F4EB42AE28795000036DD /* KSImage.cpp */; };
+		C28F4EB92AE287A7000036DD /* KSImageLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28F4EB72AE287A7000036DD /* KSImageLoader.cpp */; };
+		C28F4EBB2AE28EA7000036DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28F4EBA2AE28EA7000036DD /* CoreGraphics.framework */; };
+		C28F4EBD2AE28EAE000036DD /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28F4EBC2AE28EAE000036DD /* ImageIO.framework */; };
+		C28F4EC02AEB5442000036DD /* Editorpreview.m in Sources */ = {isa = PBXBuildFile; fileRef = C28F4EBF2AEB5442000036DD /* Editorpreview.m */; };
+		C28F4EC32AEB77D7000036DD /* FileImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = C28F4EC22AEB77D7000036DD /* FileImporter.m */; };
+		C28F4EC62AEB8F0D000036DD /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28F4EC42AEB8F0D000036DD /* Photos.framework */; };
+		C28F4EC72AEB8F0D000036DD /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28F4EC52AEB8F0D000036DD /* PhotosUI.framework */; };
+		C28F4EC82AEB911C000036DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28F4EAD2AE25F7C000036DD /* MobileCoreServices.framework */; };
+		C29875952ABEB6E700081209 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C29875942ABEB6E700081209 /* AppDelegate.m */; };
+		C29875982ABEB6E700081209 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C29875972ABEB6E700081209 /* SceneDelegate.m */; };
+		C298759B2ABEB6E700081209 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C298759A2ABEB6E700081209 /* ViewController.mm */; };
+		C298759E2ABEB6E700081209 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C298759C2ABEB6E700081209 /* Main.storyboard */; };
+		C29875A02ABEB6E800081209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C298759F2ABEB6E800081209 /* Assets.xcassets */; };
+		C29875A32ABEB6E800081209 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C29875A12ABEB6E800081209 /* LaunchScreen.storyboard */; };
+		C29875A62ABEB6E800081209 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C29875A52ABEB6E800081209 /* main.m */; };
+		C29875B02ABEB6E800081209 /* PhotoFXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C29875AF2ABEB6E800081209 /* PhotoFXTests.m */; };
+		C29875BA2ABEB6E800081209 /* PhotoFXUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C29875B92ABEB6E800081209 /* PhotoFXUITests.m */; };
+		C29875BC2ABEB6E800081209 /* PhotoFXUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C29875BB2ABEB6E800081209 /* PhotoFXUITestsLaunchTests.m */; };
+		C2E610802ADA459A001F873F /* KSTextureRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = C2E6107F2ADA459A001F873F /* KSTextureRenderer.mm */; };
+		C2E610842ADA4E47001F873F /* TextureUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E610832ADA4E47001F873F /* TextureUtils.m */; };
+		C2E610872ADA6334001F873F /* nature.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2E610862ADA6334001F873F /* nature.jpg */; };
+		C2E6108A2ADA68BB001F873F /* Texture.metal in Sources */ = {isa = PBXBuildFile; fileRef = C2E610892ADA68BB001F873F /* Texture.metal */; };
+		C2E6108E2ADBB7FF001F873F /* KSImageEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E6108C2ADBB7FF001F873F /* KSImageEditor.cpp */; };
+		C2E610922ADBB867001F873F /* KSLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E610902ADBB867001F873F /* KSLayer.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C29875AC2ABEB6E800081209 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C29875882ABEB6E700081209 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C298758F2ABEB6E700081209;
+			remoteInfo = PhotoFX;
+		};
+		C29875B62ABEB6E800081209 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C29875882ABEB6E700081209 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C298758F2ABEB6E700081209;
+			remoteInfo = PhotoFX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C2583FF82AD5FB64005D86B9 /* KSMetalView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSMetalView.h; sourceTree = "<group>"; };
+		C2583FF92AD5FB64005D86B9 /* KSMetalView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = KSMetalView.mm; sourceTree = "<group>"; };
+		C28F4EA62ADFCF3D000036DD /* KSLog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KSLog.cpp; sourceTree = "<group>"; };
+		C28F4EA72ADFCF3D000036DD /* KSLog.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KSLog.hpp; sourceTree = "<group>"; };
+		C28F4EAA2ADFD46F000036DD /* FeatureList.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = FeatureList.rtf; sourceTree = "<group>"; };
+		C28F4EAD2AE25F7C000036DD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C28F4EAF2AE26270000036DD /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		C28F4EB42AE28795000036DD /* KSImage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KSImage.cpp; sourceTree = "<group>"; };
+		C28F4EB52AE28795000036DD /* KSImage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KSImage.hpp; sourceTree = "<group>"; };
+		C28F4EB72AE287A7000036DD /* KSImageLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KSImageLoader.cpp; sourceTree = "<group>"; };
+		C28F4EB82AE287A7000036DD /* KSImageLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KSImageLoader.hpp; sourceTree = "<group>"; };
+		C28F4EBA2AE28EA7000036DD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C28F4EBC2AE28EAE000036DD /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		C28F4EBE2AEB5442000036DD /* Editorpreview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Editorpreview.h; sourceTree = "<group>"; };
+		C28F4EBF2AEB5442000036DD /* Editorpreview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Editorpreview.m; sourceTree = "<group>"; };
+		C28F4EC12AEB77D7000036DD /* FileImporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileImporter.h; sourceTree = "<group>"; };
+		C28F4EC22AEB77D7000036DD /* FileImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileImporter.m; sourceTree = "<group>"; };
+		C28F4EC42AEB8F0D000036DD /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		C28F4EC52AEB8F0D000036DD /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		C29875902ABEB6E700081209 /* PhotoFX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C29875932ABEB6E700081209 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C29875942ABEB6E700081209 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C29875962ABEB6E700081209 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		C29875972ABEB6E700081209 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		C29875992ABEB6E700081209 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C298759A2ABEB6E700081209 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		C298759D2ABEB6E700081209 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C298759F2ABEB6E800081209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C29875A22ABEB6E800081209 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C29875A42ABEB6E800081209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C29875A52ABEB6E800081209 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C29875AB2ABEB6E800081209 /* PhotoFXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoFXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C29875AF2ABEB6E800081209 /* PhotoFXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoFXTests.m; sourceTree = "<group>"; };
+		C29875B52ABEB6E800081209 /* PhotoFXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoFXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C29875B92ABEB6E800081209 /* PhotoFXUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoFXUITests.m; sourceTree = "<group>"; };
+		C29875BB2ABEB6E800081209 /* PhotoFXUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoFXUITestsLaunchTests.m; sourceTree = "<group>"; };
+		C2E6107D2ADA4465001F873F /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		C2E6107E2ADA459A001F873F /* KSTextureRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSTextureRenderer.h; sourceTree = "<group>"; };
+		C2E6107F2ADA459A001F873F /* KSTextureRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = KSTextureRenderer.mm; sourceTree = "<group>"; };
+		C2E610822ADA4E47001F873F /* TextureUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureUtils.h; sourceTree = "<group>"; };
+		C2E610832ADA4E47001F873F /* TextureUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextureUtils.m; sourceTree = "<group>"; };
+		C2E610852ADA5228001F873F /* memutils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memutils.h; sourceTree = "<group>"; };
+		C2E610862ADA6334001F873F /* nature.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nature.jpg; path = ../../../../../../Desktop/media/nature.jpg; sourceTree = "<group>"; };
+		C2E610892ADA68BB001F873F /* Texture.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Texture.metal; sourceTree = "<group>"; };
+		C2E6108C2ADBB7FF001F873F /* KSImageEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KSImageEditor.cpp; sourceTree = "<group>"; };
+		C2E6108D2ADBB7FF001F873F /* KSImageEditor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KSImageEditor.hpp; sourceTree = "<group>"; };
+		C2E610902ADBB867001F873F /* KSLayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = KSLayer.cpp; sourceTree = "<group>"; };
+		C2E610912ADBB867001F873F /* KSLayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = KSLayer.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C28F4EB12AE2629B000036DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C28F4EC82AEB911C000036DD /* MobileCoreServices.framework in Frameworks */,
+				C28F4EC62AEB8F0D000036DD /* Photos.framework in Frameworks */,
+				C28F4EC72AEB8F0D000036DD /* PhotosUI.framework in Frameworks */,
+				C28F4EBD2AE28EAE000036DD /* ImageIO.framework in Frameworks */,
+				C28F4EBB2AE28EA7000036DD /* CoreGraphics.framework in Frameworks */,
+				C28F4EB22AE262A5000036DD /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29875A82ABEB6E800081209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29875B22ABEB6E800081209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C2583FF72AD5FB41005D86B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C2583FF82AD5FB64005D86B9 /* KSMetalView.h */,
+				C2583FF92AD5FB64005D86B9 /* KSMetalView.mm */,
+				C28F4EBE2AEB5442000036DD /* Editorpreview.h */,
+				C28F4EBF2AEB5442000036DD /* Editorpreview.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C2583FFE2AD60D07005D86B9 /* Renderers */ = {
+			isa = PBXGroup;
+			children = (
+				C2E6107E2ADA459A001F873F /* KSTextureRenderer.h */,
+				C2E6107F2ADA459A001F873F /* KSTextureRenderer.mm */,
+			);
+			path = Renderers;
+			sourceTree = "<group>";
+		};
+		C28F4EA42ADFB690000036DD /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		C28F4EA52ADFCF24000036DD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C28F4EA92ADFD215000036DD /* Logger */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C28F4EA92ADFD215000036DD /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				C28F4EA62ADFCF3D000036DD /* KSLog.cpp */,
+				C28F4EA72ADFCF3D000036DD /* KSLog.hpp */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		C28F4EAC2AE25F7C000036DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C28F4EC42AEB8F0D000036DD /* Photos.framework */,
+				C28F4EC52AEB8F0D000036DD /* PhotosUI.framework */,
+				C28F4EBC2AE28EAE000036DD /* ImageIO.framework */,
+				C28F4EBA2AE28EA7000036DD /* CoreGraphics.framework */,
+				C28F4EAF2AE26270000036DD /* UniformTypeIdentifiers.framework */,
+				C28F4EAD2AE25F7C000036DD /* MobileCoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C28F4EB32AE28777000036DD /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				C28F4EB42AE28795000036DD /* KSImage.cpp */,
+				C28F4EB52AE28795000036DD /* KSImage.hpp */,
+				C28F4EB72AE287A7000036DD /* KSImageLoader.cpp */,
+				C28F4EB82AE287A7000036DD /* KSImageLoader.hpp */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		C29875872ABEB6E700081209 = {
+			isa = PBXGroup;
+			children = (
+				C28F4EA52ADFCF24000036DD /* Core */,
+				C2E610932ADBDED8001F873F /* FileManager */,
+				C2E6108B2ADBB7C2001F873F /* KSImageEditor */,
+				C2E610882ADA689A001F873F /* Shaders */,
+				C2E610812ADA49DD001F873F /* Utils */,
+				C2E6107C2ADA4448001F873F /* Model */,
+				C2583FFE2AD60D07005D86B9 /* Renderers */,
+				C2583FF72AD5FB41005D86B9 /* Views */,
+				C29875922ABEB6E700081209 /* PhotoFX */,
+				C29875AE2ABEB6E800081209 /* PhotoFXTests */,
+				C29875B82ABEB6E800081209 /* PhotoFXUITests */,
+				C29875912ABEB6E700081209 /* Products */,
+				C28F4EAC2AE25F7C000036DD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C29875912ABEB6E700081209 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C29875902ABEB6E700081209 /* PhotoFX.app */,
+				C29875AB2ABEB6E800081209 /* PhotoFXTests.xctest */,
+				C29875B52ABEB6E800081209 /* PhotoFXUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C29875922ABEB6E700081209 /* PhotoFX */ = {
+			isa = PBXGroup;
+			children = (
+				C29875932ABEB6E700081209 /* AppDelegate.h */,
+				C29875942ABEB6E700081209 /* AppDelegate.m */,
+				C2E610862ADA6334001F873F /* nature.jpg */,
+				C29875962ABEB6E700081209 /* SceneDelegate.h */,
+				C29875972ABEB6E700081209 /* SceneDelegate.m */,
+				C29875992ABEB6E700081209 /* ViewController.h */,
+				C298759A2ABEB6E700081209 /* ViewController.mm */,
+				C298759C2ABEB6E700081209 /* Main.storyboard */,
+				C298759F2ABEB6E800081209 /* Assets.xcassets */,
+				C29875A12ABEB6E800081209 /* LaunchScreen.storyboard */,
+				C29875A42ABEB6E800081209 /* Info.plist */,
+				C29875A52ABEB6E800081209 /* main.m */,
+			);
+			path = PhotoFX;
+			sourceTree = "<group>";
+		};
+		C29875AE2ABEB6E800081209 /* PhotoFXTests */ = {
+			isa = PBXGroup;
+			children = (
+				C29875AF2ABEB6E800081209 /* PhotoFXTests.m */,
+			);
+			path = PhotoFXTests;
+			sourceTree = "<group>";
+		};
+		C29875B82ABEB6E800081209 /* PhotoFXUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C29875B92ABEB6E800081209 /* PhotoFXUITests.m */,
+				C29875BB2ABEB6E800081209 /* PhotoFXUITestsLaunchTests.m */,
+			);
+			path = PhotoFXUITests;
+			sourceTree = "<group>";
+		};
+		C2E6107C2ADA4448001F873F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C2E6107D2ADA4465001F873F /* Model.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C2E610812ADA49DD001F873F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C2E610822ADA4E47001F873F /* TextureUtils.h */,
+				C2E610832ADA4E47001F873F /* TextureUtils.m */,
+				C2E610852ADA5228001F873F /* memutils.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C2E610882ADA689A001F873F /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				C2E610892ADA68BB001F873F /* Texture.metal */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		C2E6108B2ADBB7C2001F873F /* KSImageEditor */ = {
+			isa = PBXGroup;
+			children = (
+				C28F4EB32AE28777000036DD /* Image */,
+				C28F4EA42ADFB690000036DD /* New Group */,
+				C2E6108F2ADBB82E001F873F /* Layer */,
+				C2E6108C2ADBB7FF001F873F /* KSImageEditor.cpp */,
+				C2E6108D2ADBB7FF001F873F /* KSImageEditor.hpp */,
+				C28F4EAA2ADFD46F000036DD /* FeatureList.rtf */,
+			);
+			path = KSImageEditor;
+			sourceTree = "<group>";
+		};
+		C2E6108F2ADBB82E001F873F /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+				C2E610902ADBB867001F873F /* KSLayer.cpp */,
+				C2E610912ADBB867001F873F /* KSLayer.hpp */,
+			);
+			path = Layer;
+			sourceTree = "<group>";
+		};
+		C2E610932ADBDED8001F873F /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				C28F4EC12AEB77D7000036DD /* FileImporter.h */,
+				C28F4EC22AEB77D7000036DD /* FileImporter.m */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C298758F2ABEB6E700081209 /* PhotoFX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C29875BF2ABEB6E800081209 /* Build configuration list for PBXNativeTarget "PhotoFX" */;
+			buildPhases = (
+				C298758C2ABEB6E700081209 /* Sources */,
+				C298758E2ABEB6E700081209 /* Resources */,
+				C28F4EB12AE2629B000036DD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoFX;
+			productName = PhotoFX;
+			productReference = C29875902ABEB6E700081209 /* PhotoFX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C29875AA2ABEB6E800081209 /* PhotoFXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C29875C22ABEB6E800081209 /* Build configuration list for PBXNativeTarget "PhotoFXTests" */;
+			buildPhases = (
+				C29875A72ABEB6E800081209 /* Sources */,
+				C29875A82ABEB6E800081209 /* Frameworks */,
+				C29875A92ABEB6E800081209 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C29875AD2ABEB6E800081209 /* PBXTargetDependency */,
+			);
+			name = PhotoFXTests;
+			productName = PhotoFXTests;
+			productReference = C29875AB2ABEB6E800081209 /* PhotoFXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C29875B42ABEB6E800081209 /* PhotoFXUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C29875C52ABEB6E800081209 /* Build configuration list for PBXNativeTarget "PhotoFXUITests" */;
+			buildPhases = (
+				C29875B12ABEB6E800081209 /* Sources */,
+				C29875B22ABEB6E800081209 /* Frameworks */,
+				C29875B32ABEB6E800081209 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C29875B72ABEB6E800081209 /* PBXTargetDependency */,
+			);
+			name = PhotoFXUITests;
+			productName = PhotoFXUITests;
+			productReference = C29875B52ABEB6E800081209 /* PhotoFXUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C29875882ABEB6E700081209 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					C298758F2ABEB6E700081209 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					C29875AA2ABEB6E800081209 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = C298758F2ABEB6E700081209;
+					};
+					C29875B42ABEB6E800081209 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = C298758F2ABEB6E700081209;
+					};
+				};
+			};
+			buildConfigurationList = C298758B2ABEB6E700081209 /* Build configuration list for PBXProject "PhotoFX" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C29875872ABEB6E700081209;
+			productRefGroup = C29875912ABEB6E700081209 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C298758F2ABEB6E700081209 /* PhotoFX */,
+				C29875AA2ABEB6E800081209 /* PhotoFXTests */,
+				C29875B42ABEB6E800081209 /* PhotoFXUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C298758E2ABEB6E700081209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2E610872ADA6334001F873F /* nature.jpg in Resources */,
+				C29875A32ABEB6E800081209 /* LaunchScreen.storyboard in Resources */,
+				C29875A02ABEB6E800081209 /* Assets.xcassets in Resources */,
+				C28F4EAB2ADFD46F000036DD /* FeatureList.rtf in Resources */,
+				C298759E2ABEB6E700081209 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29875A92ABEB6E800081209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29875B32ABEB6E800081209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C298758C2ABEB6E700081209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C298759B2ABEB6E700081209 /* ViewController.mm in Sources */,
+				C29875952ABEB6E700081209 /* AppDelegate.m in Sources */,
+				C2E610802ADA459A001F873F /* KSTextureRenderer.mm in Sources */,
+				C28F4EA82ADFCF3D000036DD /* KSLog.cpp in Sources */,
+				C29875A62ABEB6E800081209 /* main.m in Sources */,
+				C28F4EC32AEB77D7000036DD /* FileImporter.m in Sources */,
+				C2E6108E2ADBB7FF001F873F /* KSImageEditor.cpp in Sources */,
+				C28F4EB92AE287A7000036DD /* KSImageLoader.cpp in Sources */,
+				C2E610842ADA4E47001F873F /* TextureUtils.m in Sources */,
+				C29875982ABEB6E700081209 /* SceneDelegate.m in Sources */,
+				C2E610922ADBB867001F873F /* KSLayer.cpp in Sources */,
+				C28F4EB62AE28795000036DD /* KSImage.cpp in Sources */,
+				C2583FFA2AD5FB64005D86B9 /* KSMetalView.mm in Sources */,
+				C2E6108A2ADA68BB001F873F /* Texture.metal in Sources */,
+				C28F4EC02AEB5442000036DD /* Editorpreview.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29875A72ABEB6E800081209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C29875B02ABEB6E800081209 /* PhotoFXTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29875B12ABEB6E800081209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C29875BA2ABEB6E800081209 /* PhotoFXUITests.m in Sources */,
+				C29875BC2ABEB6E800081209 /* PhotoFXUITestsLaunchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C29875AD2ABEB6E800081209 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C298758F2ABEB6E700081209 /* PhotoFX */;
+			targetProxy = C29875AC2ABEB6E800081209 /* PBXContainerItemProxy */;
+		};
+		C29875B72ABEB6E800081209 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C298758F2ABEB6E700081209 /* PhotoFX */;
+			targetProxy = C29875B62ABEB6E800081209 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C298759C2ABEB6E700081209 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C298759D2ABEB6E700081209 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C29875A12ABEB6E800081209 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C29875A22ABEB6E800081209 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C29875BD2ABEB6E800081209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C29875BE2ABEB6E800081209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C29875C02ABEB6E800081209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XR59LU7GZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhotoFX/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kalasoft.PhotoFX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C29875C12ABEB6E800081209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XR59LU7GZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhotoFX/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kalasoft.PhotoFX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C29875C32ABEB6E800081209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XR59LU7GZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kalasoft.PhotoFXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoFX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PhotoFX";
+			};
+			name = Debug;
+		};
+		C29875C42ABEB6E800081209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XR59LU7GZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kalasoft.PhotoFXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoFX.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PhotoFX";
+			};
+			name = Release;
+		};
+		C29875C62ABEB6E800081209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XR59LU7GZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kalasoft.PhotoFXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PhotoFX;
+			};
+			name = Debug;
+		};
+		C29875C72ABEB6E800081209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8XR59LU7GZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kalasoft.PhotoFXUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PhotoFX;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C298758B2ABEB6E700081209 /* Build configuration list for PBXProject "PhotoFX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C29875BD2ABEB6E800081209 /* Debug */,
+				C29875BE2ABEB6E800081209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C29875BF2ABEB6E800081209 /* Build configuration list for PBXNativeTarget "PhotoFX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C29875C02ABEB6E800081209 /* Debug */,
+				C29875C12ABEB6E800081209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C29875C22ABEB6E800081209 /* Build configuration list for PBXNativeTarget "PhotoFXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C29875C32ABEB6E800081209 /* Debug */,
+				C29875C42ABEB6E800081209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C29875C52ABEB6E800081209 /* Build configuration list for PBXNativeTarget "PhotoFXUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C29875C62ABEB6E800081209 /* Debug */,
+				C29875C72ABEB6E800081209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C29875882ABEB6E700081209 /* Project object */;
+}
