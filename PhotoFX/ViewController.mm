@@ -14,8 +14,12 @@
 #import "KSLog.hpp"
 
 @interface ViewController ()
+{
+    float slider1Value;
+}
 
 @property(strong,nonatomic) Editorpreview* preview;
+
 
 @end
 
@@ -25,6 +29,10 @@
 {
     
     [super viewDidLoad];
+    _slider1.maximumValue = 1.0;
+    _slider1.minimumValue = 0.0;
+    _slider2.maximumValue = 1.0;
+    _slider2.minimumValue = 0.0;
     
     // Do any additional setup after loading the view.
    // _preview = [[Editorpreview alloc] initWithFrame:self.view.bounds];
@@ -121,6 +129,14 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }*/
 
+- (IBAction)onSlideOne:(id)sender {
+    
+    if(slider1Value != self.slider1.value)
+    {
+        //Pass slider value;
+    }
+}
+
 - (IBAction)onBrowseFilesClick:(id)sender {
     
    /* UTType utiTypes[] = {UTType.image, .movie, .video, .mp3, .audio, .quickTimeMovie, .mpeg, .mpeg2Video, .mpeg2TransportStream, .mpeg4Movie, .mpeg4Audio, .appleProtectedMPEG4Audio, .appleProtectedMPEG4Video, .avi, .aiff, .wav, .midi, .livePhoto, .tiff, .gif, UTType("com.apple.quicktime-image"), .icns};*/
@@ -159,4 +175,6 @@
 }
   */
 
+- (IBAction)onSlideTwo:(id)sender {
+}
 @end

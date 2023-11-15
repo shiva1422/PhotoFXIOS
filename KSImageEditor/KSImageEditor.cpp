@@ -58,7 +58,7 @@ void KSImageEditor::addLayer(KSLayer *layer)
     this->activeLayer = layer;
 }
 
-void KSImageEditor::removeLayer(int32_t layerNumber)
+void KSImageEditor::removeLayer(LayerID layerId)
 {
     /*
      TODO

@@ -1,15 +1,15 @@
 //
-//  KSTextureRenderer.m
+//  KSFilterRenderer.m
 //  PhotoFX
 //
-//  Created by Shiva Shanker Pandiri on 10/13/23.
+//  Created by Shiva Shanker Pandiri on 11/13/23.
 //
 
-#import "KSTextureRenderer.h"
+
+#import "KSFilterRenderer.h"
 #include "Model.h"
 #include "memutils.h"
 #include "FilterCommon.hpp"
-#include <mutex>
 
 #define flightBufferCount 3
 
@@ -24,17 +24,16 @@ const KTextureModel textModel[]= {
 
 const KBEIndex indices[] = {0,2,1,0,3,2};
 
+
+
  
-@interface KSTextureRenderer()
-{
-    std::mutex filterLock;
-    ImageFilter filter;
-}
+@interface KSFilterRenderer()
 
 @property (strong,nonatomic) id<MTLDevice> device;
 @property (strong,nonatomic) id<MTLBuffer> vertexBuffer;
 @property (strong,nonatomic) id<MTLBuffer> indexBuffer;
 @property (strong,nonatomic) id<MTLBuffer> uniformBuffer;
+@property (strong,nonatomic) id<MTLBuffer> filterParamBuffer;
 @property (strong,nonatomic) id<MTLTexture> texture;
 
 @property (strong) id<MTLCommandQueue> commandQueue;
@@ -47,7 +46,7 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
 @end
 
 
-@implementation KSTextureRenderer
+@implementation KSFilterRenderer
 
 -(instancetype)init
 {
@@ -78,8 +77,8 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
    // id<MTLFunction> fragmentFunc = [library newFunctionWithName:@"frag"];
     
     MTLRenderPipelineDescriptor *pipelineDescriptor = [MTLRenderPipelineDescriptor new];
-    pipelineDescriptor.vertexFunction = [library newFunctionWithName:@"vert"];
-    pipelineDescriptor.fragmentFunction =[library newFunctionWithName:@"frag"];
+    pipelineDescriptor.vertexFunction = [library newFunctionWithName:@"vertIntensity"];
+    pipelineDescriptor.fragmentFunction =[library newFunctionWithName:@"fragIntensity"];
     pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
     pipelineDescriptor.depthAttachmentPixelFormat = MTLPixelFormatDepth32Float;
     
@@ -109,6 +108,9 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     _uniformBuffer = [self.device   newBufferWithLength:alignUp(sizeof(KUniform),KSBufferAlignment)*flightBufferCount options:MTLResourceCPUCacheModeDefaultCache];
     [_uniformBuffer setLabel:@"uniforms"];
     
+    _filterParamBuffer = [self.device newBufferWithLength:sizeof(ImageFilter) options:(MTLResourceOptionCPUCacheModeDefault)];
+    [_filterParamBuffer setLabel:@"params"];
+    
     //TODO animation
 }
 
@@ -135,6 +137,7 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     
     [renderPass setVertexBuffer:self.vertexBuffer  offset:0 atIndex:0];
     [renderPass setVertexBuffer:self.uniformBuffer offset:uniformBufferOffset atIndex:1];
+    [renderPass setVertexBuffer:self.filterParamBuffer offset:0 atIndex:2];
     [renderPass setFragmentTexture:_texture atIndex:0];
     
     const MTLIndexType KBEIndexType = MTLIndexTypeUInt16;
@@ -199,12 +202,6 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     //TODO do right free pixels.
     
     return texture;
-    
-}
-
--(void)updateParams
-{
-    
     
 }
 

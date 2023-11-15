@@ -22,6 +22,7 @@ struct KSLayerProperties{
 
 };
 
+typedef int32_t LayerID;
 class KSLayer{
     
 public:

@@ -24,5 +24,10 @@ struct KSImageEditor;
 
 - (IBAction)onBrowseFilesClick:(id)sender;
 
+- (IBAction)onSlideOne:(id)sender;
+@property (weak, nonatomic) IBOutlet UISlider *slider1;
+@property (weak, nonatomic) IBOutlet UISlider *slider2;
+- (IBAction)onSlideTwo:(id)sender;
+
 @end
 

@@ -40,7 +40,7 @@ public:
     
     void addLayer(KSLayer *layer);
     
-    void removeLayer(int32_t layerNumber);
+    void removeLayer(LayerID layerID);
     
     //Editing Operations will be performed on active layer(selected layer).
     KSLayer* getActiveLayer(){return activeLayer;};//

@@ -37,6 +37,20 @@
                                             <action selector="onBrowseFilesClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V3r-fY-XGC"/>
                                         </connections>
                                     </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zSZ-oy-PyT">
+                                        <rect key="frame" x="-2" y="633" width="389" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="onSlideOne:" destination="BYZ-38-t0r" eventType="valueChanged" id="u0B-Vv-nNO"/>
+                                        </connections>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9B4-DY-G2B">
+                                        <rect key="frame" x="6" y="686" width="381" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="onSlideTwo:" destination="BYZ-38-t0r" eventType="valueChanged" id="DYe-El-LD4"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -53,6 +67,8 @@
                     <connections>
                         <outlet property="ImportButton" destination="9OI-2r-bO8" id="ssN-fO-eVs"/>
                         <outlet property="fileButton" destination="TNM-en-y9W" id="3va-rF-rKt"/>
+                        <outlet property="slider1" destination="zSZ-oy-PyT" id="R2S-WM-zkF"/>
+                        <outlet property="slider2" destination="9B4-DY-G2B" id="gmg-Br-674"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -20,6 +20,8 @@
 		C28F4EC62AEB8F0D000036DD /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28F4EC42AEB8F0D000036DD /* Photos.framework */; };
 		C28F4EC72AEB8F0D000036DD /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28F4EC52AEB8F0D000036DD /* PhotosUI.framework */; };
 		C28F4EC82AEB911C000036DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28F4EAD2AE25F7C000036DD /* MobileCoreServices.framework */; };
+		C28F4ECA2B03216E000036DD /* Intensity.metal in Sources */ = {isa = PBXBuildFile; fileRef = C28F4EC92B03216E000036DD /* Intensity.metal */; };
+		C28F4ECD2B0321D7000036DD /* KSFilterRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = C28F4ECC2B0321D7000036DD /* KSFilterRenderer.mm */; };
 		C29875952ABEB6E700081209 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C29875942ABEB6E700081209 /* AppDelegate.m */; };
 		C29875982ABEB6E700081209 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C29875972ABEB6E700081209 /* SceneDelegate.m */; };
 		C298759B2ABEB6E700081209 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C298759A2ABEB6E700081209 /* ViewController.mm */; };
@@ -30,6 +32,9 @@
 		C29875B02ABEB6E800081209 /* PhotoFXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C29875AF2ABEB6E800081209 /* PhotoFXTests.m */; };
 		C29875BA2ABEB6E800081209 /* PhotoFXUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C29875B92ABEB6E800081209 /* PhotoFXUITests.m */; };
 		C29875BC2ABEB6E800081209 /* PhotoFXUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C29875BB2ABEB6E800081209 /* PhotoFXUITestsLaunchTests.m */; };
+		C2D57CBB2B0456A5002DCE53 /* TestTheory.metal in Sources */ = {isa = PBXBuildFile; fileRef = C2D57CBA2B0456A5002DCE53 /* TestTheory.metal */; };
+		C2D57CC32B046800002DCE53 /* FilterCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2D57CC12B046800002DCE53 /* FilterCommon.cpp */; };
+		C2D57CC62B058A3C002DCE53 /* EditController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2D57CC42B058A3C002DCE53 /* EditController.cpp */; };
 		C2E610802ADA459A001F873F /* KSTextureRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = C2E6107F2ADA459A001F873F /* KSTextureRenderer.mm */; };
 		C2E610842ADA4E47001F873F /* TextureUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E610832ADA4E47001F873F /* TextureUtils.m */; };
 		C2E610872ADA6334001F873F /* nature.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2E610862ADA6334001F873F /* nature.jpg */; };
@@ -75,6 +80,9 @@
 		C28F4EC22AEB77D7000036DD /* FileImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileImporter.m; sourceTree = "<group>"; };
 		C28F4EC42AEB8F0D000036DD /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		C28F4EC52AEB8F0D000036DD /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		C28F4EC92B03216E000036DD /* Intensity.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Intensity.metal; sourceTree = "<group>"; };
+		C28F4ECB2B0321D7000036DD /* KSFilterRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSFilterRenderer.h; sourceTree = "<group>"; };
+		C28F4ECC2B0321D7000036DD /* KSFilterRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = KSFilterRenderer.mm; sourceTree = "<group>"; };
 		C29875902ABEB6E700081209 /* PhotoFX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29875932ABEB6E700081209 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C29875942ABEB6E700081209 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -92,6 +100,12 @@
 		C29875B52ABEB6E800081209 /* PhotoFXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoFXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29875B92ABEB6E800081209 /* PhotoFXUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoFXUITests.m; sourceTree = "<group>"; };
 		C29875BB2ABEB6E800081209 /* PhotoFXUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoFXUITestsLaunchTests.m; sourceTree = "<group>"; };
+		C2D57CBA2B0456A5002DCE53 /* TestTheory.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = TestTheory.metal; sourceTree = "<group>"; };
+		C2D57CBC2B045DE0002DCE53 /* FilterCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterCommon.h; sourceTree = "<group>"; };
+		C2D57CC12B046800002DCE53 /* FilterCommon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FilterCommon.cpp; sourceTree = "<group>"; };
+		C2D57CC22B046800002DCE53 /* FilterCommon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FilterCommon.hpp; sourceTree = "<group>"; };
+		C2D57CC42B058A3C002DCE53 /* EditController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EditController.cpp; sourceTree = "<group>"; };
+		C2D57CC52B058A3C002DCE53 /* EditController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EditController.hpp; sourceTree = "<group>"; };
 		C2E6107D2ADA4465001F873F /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		C2E6107E2ADA459A001F873F /* KSTextureRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSTextureRenderer.h; sourceTree = "<group>"; };
 		C2E6107F2ADA459A001F873F /* KSTextureRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = KSTextureRenderer.mm; sourceTree = "<group>"; };
@@ -153,6 +167,10 @@
 			children = (
 				C2E6107E2ADA459A001F873F /* KSTextureRenderer.h */,
 				C2E6107F2ADA459A001F873F /* KSTextureRenderer.mm */,
+				C28F4ECB2B0321D7000036DD /* KSFilterRenderer.h */,
+				C28F4ECC2B0321D7000036DD /* KSFilterRenderer.mm */,
+				C2D57CC42B058A3C002DCE53 /* EditController.cpp */,
+				C2D57CC52B058A3C002DCE53 /* EditController.hpp */,
 			);
 			path = Renderers;
 			sourceTree = "<group>";
@@ -208,6 +226,7 @@
 		C29875872ABEB6E700081209 = {
 			isa = PBXGroup;
 			children = (
+				C2D57CBD2B046653002DCE53 /* Filter */,
 				C28F4EA52ADFCF24000036DD /* Core */,
 				C2E610932ADBDED8001F873F /* FileManager */,
 				C2E6108B2ADBB7C2001F873F /* KSImageEditor */,
@@ -270,6 +289,15 @@
 			path = PhotoFXUITests;
 			sourceTree = "<group>";
 		};
+		C2D57CBD2B046653002DCE53 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				C2D57CC12B046800002DCE53 /* FilterCommon.cpp */,
+				C2D57CC22B046800002DCE53 /* FilterCommon.hpp */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		C2E6107C2ADA4448001F873F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +320,9 @@
 			isa = PBXGroup;
 			children = (
 				C2E610892ADA68BB001F873F /* Texture.metal */,
+				C28F4EC92B03216E000036DD /* Intensity.metal */,
+				C2D57CBA2B0456A5002DCE53 /* TestTheory.metal */,
+				C2D57CBC2B045DE0002DCE53 /* FilterCommon.h */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -459,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28F4ECD2B0321D7000036DD /* KSFilterRenderer.mm in Sources */,
 				C298759B2ABEB6E700081209 /* ViewController.mm in Sources */,
 				C29875952ABEB6E700081209 /* AppDelegate.m in Sources */,
 				C2E610802ADA459A001F873F /* KSTextureRenderer.mm in Sources */,
@@ -466,11 +498,15 @@
 				C29875A62ABEB6E800081209 /* main.m in Sources */,
 				C28F4EC32AEB77D7000036DD /* FileImporter.m in Sources */,
 				C2E6108E2ADBB7FF001F873F /* KSImageEditor.cpp in Sources */,
+				C28F4ECA2B03216E000036DD /* Intensity.metal in Sources */,
+				C2D57CC62B058A3C002DCE53 /* EditController.cpp in Sources */,
 				C28F4EB92AE287A7000036DD /* KSImageLoader.cpp in Sources */,
 				C2E610842ADA4E47001F873F /* TextureUtils.m in Sources */,
 				C29875982ABEB6E700081209 /* SceneDelegate.m in Sources */,
 				C2E610922ADBB867001F873F /* KSLayer.cpp in Sources */,
+				C2D57CC32B046800002DCE53 /* FilterCommon.cpp in Sources */,
 				C28F4EB62AE28795000036DD /* KSImage.cpp in Sources */,
+				C2D57CBB2B0456A5002DCE53 /* TestTheory.metal in Sources */,
 				C2583FFA2AD5FB64005D86B9 /* KSMetalView.mm in Sources */,
 				C2E6108A2ADA68BB001F873F /* Texture.metal in Sources */,
 				C28F4EC02AEB5442000036DD /* Editorpreview.m in Sources */,

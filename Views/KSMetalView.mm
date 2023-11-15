@@ -7,7 +7,7 @@
 
 #import "KSMetalView.h"
 #import "KSTextureRenderer.h"
-
+#import "KSFilterRenderer.h"
 static bool bFirst = true;//TODO
 
 @interface KSMetalView()
@@ -152,7 +152,7 @@ static bool bFirst = true;//TODO
 {
     if(!self.delegate)
     {
-        self.delegate = [KSTextureRenderer new];//TODO move to appropriate location;
+        self.delegate = [KSFilterRenderer new];//TODO move to appropriate location;
     }
     self.currentDrawable = self.metalLayer.nextDrawable;
     self.frameDuration = displayLink.duration;

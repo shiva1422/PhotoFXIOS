@@ -1,0 +1,50 @@
+//
+//  Intensity.metal
+//  PhotoFX
+//
+//  Created by Shiva Shanker Pandiri on 11/13/23.
+//
+
+#include <metal_stdlib>
+//#include "../Filter/FilterCommon.hpp"
+using namespace metal;
+/*
+ Intensity Transformations.
+ */
+
+struct Vertex
+{
+    float4 position [[position]];
+    float2 UV;
+};
+
+struct Uniforms
+{
+    float4x4 mvpMatrix;
+};
+
+//KeepSame as FilterCommon.hpp//Later also consider type sizes float32,halfFloat etc.
+struct ImageFilter{
+    
+    float alpha = 0.5;
+    float scaleFactor[4] = {1.0,1.0,1.0,1.0};
+};
+
+vertex Vertex vertIntensity(const device Vertex *vertices [[buffer(0)]] , constant Uniforms *uniforms [[buffer(1)]],uint vid[[vertex_id]])
+{
+    Vertex vout;
+    vout.position = vertices[vid].position;
+    vout.UV = vertices[vid].UV;
+    return vout;
+}
+
+fragment float4 fragIntensity(Vertex inVertex[[stage_in]] ,texture2d<float>text[[texture(0)]],constant ImageFilter *filter[[buffer(2)]])
+{
+    constexpr sampler textureSampler(coord::normalized,address::repeat,filter::linear);
+    float4 sampledColor = text.sample(textureSampler, inVertex.UV);
+    
+    ImageFilter tempFil;
+    sampledColor.r = tempFil.alpha;
+   // sampledColor = float4(sampledColor.r)
+    return sampledColor;
+}
