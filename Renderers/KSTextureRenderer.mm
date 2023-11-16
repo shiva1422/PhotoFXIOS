@@ -26,10 +26,7 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
 
  
 @interface KSTextureRenderer()
-{
-    std::mutex filterLock;
-    ImageFilter filter;
-}
+
 
 @property (strong,nonatomic) id<MTLDevice> device;
 @property (strong,nonatomic) id<MTLBuffer> vertexBuffer;
@@ -202,11 +199,7 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     
 }
 
--(void)updateParams
-{
-    
-    
-}
+
 
 @end
 

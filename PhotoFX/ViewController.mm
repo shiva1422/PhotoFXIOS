@@ -12,13 +12,17 @@
 #import "FileImporter.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "KSLog.hpp"
+#import "KSFilterRenderer.h"
 
 @interface ViewController ()
 {
     float slider1Value;
+    
 }
 
 @property(strong,nonatomic) Editorpreview* preview;
+@property(weak,nonatomic) KSFilterRenderer* filterRenderer;
+
 
 
 @end
@@ -29,7 +33,7 @@
 {
     
     [super viewDidLoad];
-    _slider1.maximumValue = 1.0;
+    _slider1.maximumValue = 10.0;
     _slider1.minimumValue = 0.0;
     _slider2.maximumValue = 1.0;
     _slider2.minimumValue = 0.0;
@@ -38,6 +42,8 @@
    // _preview = [[Editorpreview alloc] initWithFrame:self.view.bounds];
    // [self.view addSubview:_preview];
     //_preview.image =
+    //KSMetalView *view =(KSMetalView *) self.view;
+    _filterRenderer = (KSFilterRenderer *)_metalView.delegate;
     imageEditor = new KSImageEditor(self.view.bounds.size.width, self.view.frame.size.height);
     KSLogI("View did load");
     //imageEditor->setResolution();
@@ -131,9 +137,14 @@
 
 - (IBAction)onSlideOne:(id)sender {
     
-    if(slider1Value != self.slider1.value)
+    UISlider* slider = sender;
+    KSLogD("Slider value %f",slider.value);
+    if(slider1Value != slider.value)
     {
-        //Pass slider value;
+        slider1Value = slider.value;
+        _filterRenderer = (KSFilterRenderer *)_metalView.delegate;
+        [_filterRenderer setLogContrastScale:slider1Value];
+        
     }
 }
 

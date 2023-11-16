@@ -67,6 +67,7 @@
                     <connections>
                         <outlet property="ImportButton" destination="9OI-2r-bO8" id="ssN-fO-eVs"/>
                         <outlet property="fileButton" destination="TNM-en-y9W" id="3va-rF-rKt"/>
+                        <outlet property="metalView" destination="a04-bs-XfE" id="3n8-pq-9sv"/>
                         <outlet property="slider1" destination="zSZ-oy-PyT" id="R2S-WM-zkF"/>
                         <outlet property="slider2" destination="9B4-DY-G2B" id="gmg-Br-674"/>
                     </connections>

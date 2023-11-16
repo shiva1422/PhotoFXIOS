@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KSFilterRenderer : NSObject <KSMetalViewDelegate>
 
--(void)updateParams;
+/*generally 0.0 - 1.0*/
+-(void) setLogContrastScale:(float)scale;
 
 @end
 

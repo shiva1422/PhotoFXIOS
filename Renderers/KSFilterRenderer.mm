@@ -10,6 +10,7 @@
 #include "Model.h"
 #include "memutils.h"
 #include "FilterCommon.hpp"
+#include <mutex>
 
 #define flightBufferCount 3
 
@@ -28,7 +29,10 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
 
  
 @interface KSFilterRenderer()
-
+{
+    FilterParams filterParams;
+    std::mutex filterLock;
+}
 @property (strong,nonatomic) id<MTLDevice> device;
 @property (strong,nonatomic) id<MTLBuffer> vertexBuffer;
 @property (strong,nonatomic) id<MTLBuffer> indexBuffer;
@@ -52,11 +56,13 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
 {
     if((self = [super init]))
     {
+         filterParams.scaleFactor[0] = 20.0;
         _device = MTLCreateSystemDefaultDevice();
         _displaySemaphore = dispatch_semaphore_create(flightBufferCount);
         [self createPipeline];
         [self createBuffers];
     }
+   
     return self;
 }
 
@@ -78,7 +84,7 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     
     MTLRenderPipelineDescriptor *pipelineDescriptor = [MTLRenderPipelineDescriptor new];
     pipelineDescriptor.vertexFunction = [library newFunctionWithName:@"vertIntensity"];
-    pipelineDescriptor.fragmentFunction =[library newFunctionWithName:@"fragIntensity"];
+    pipelineDescriptor.fragmentFunction =[library newFunctionWithName:@"logIntensity"];
     pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
     pipelineDescriptor.depthAttachmentPixelFormat = MTLPixelFormatDepth32Float;
     
@@ -108,7 +114,7 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     _uniformBuffer = [self.device   newBufferWithLength:alignUp(sizeof(KUniform),KSBufferAlignment)*flightBufferCount options:MTLResourceCPUCacheModeDefaultCache];
     [_uniformBuffer setLabel:@"uniforms"];
     
-    _filterParamBuffer = [self.device newBufferWithLength:sizeof(ImageFilter) options:(MTLResourceOptionCPUCacheModeDefault)];
+    _filterParamBuffer = [self.device newBufferWithBytes:&filterParams length:sizeof(FilterParams) options:(MTLResourceCPUCacheModeDefaultCache)];
     [_filterParamBuffer setLabel:@"params"];
     
     //TODO animation
@@ -118,7 +124,7 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
 {
    
     dispatch_semaphore_wait(self.displaySemaphore, DISPATCH_TIME_FOREVER);
-    
+    [self updateParams];
     view.clearColor = MTLClearColorMake(0.0, 0.0, 0.0, 1);
     
     //update MVP
@@ -137,7 +143,7 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     
     [renderPass setVertexBuffer:self.vertexBuffer  offset:0 atIndex:0];
     [renderPass setVertexBuffer:self.uniformBuffer offset:uniformBufferOffset atIndex:1];
-    [renderPass setVertexBuffer:self.filterParamBuffer offset:0 atIndex:2];
+    [renderPass setFragmentBuffer:self.filterParamBuffer offset:0 atIndex:2];
     [renderPass setFragmentTexture:_texture atIndex:0];
     
     const MTLIndexType KBEIndexType = MTLIndexTypeUInt16;
@@ -204,6 +210,46 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     return texture;
     
 }
+-(void)updateParams
+{
+    // filterParams.scaleFactor[0] = 2.0;
+    std::unique_lock<std::mutex> lock(filterLock);
+    memcpy((uint8_t *)[self.filterParamBuffer contents] ,&filterParams ,sizeof(filterParams));
+    
+}
 
+-(void)updateMVP:(KSMetalView *)view duration:(NSTimeInterval)duration
+{
+    /*
+     self.time += duration;
+     self.rotationx = ;
+     float scaleFactor = ;calculate
+     const vector_float3 xAxis = {1,0,0};
+     const vector_float3 yAxis = {0,1,0};
+     const matrix_float4x4 xRot = matrix_float4x4_rotation(xAxis , self.rotationX);
+     const matrix_float4x4 yRot = matrix_float4x4_rotation(yAxis, self.rotationY);
+     const matrix_float4x4 scale = matrix_float4x4_uniform_scale(scaleFactor);
+     const matrix_float4x4 modelMatrix = matrix_multiply(matrix_multiply(xRot,yRot),scale);
+     
+     const vector_float3 cameraTranslation = {0,0,-5};
+     const matrix_float4x4 viewMatrix = matrix_float4x4_translation(cameraTranslation);
+     
+     const CGSizedrawableSize = view.metalLayer.drawableSize;
+     const float spect = drawableSize.widht/drawableSize.height;
+     const float fov = (3*M_PI)/5;
+     const float near = 1;
+     const float far = 100;
+     const matrix_float4x4 projectionMatrix = matrix_float4x4_perspective(aspect,fov,near,far);
+     
+     KUniforms uniforms;
+     const NSUInteger uniformBufferOffset = AlignUp(sizeof(KUniforms),KSBufferAlignment) *self.bufferIndex;
+     memcpy((uint8_t *)[self.unifromBuffer contents] + uniformBufferOffset,&uniforms ,sizeof(uniforms));
+     */
+}
+-(void)setLogContrastScale:(float)scale
+{
+    std::unique_lock<std::mutex> lock(filterLock);
+    filterParams.scaleFactor[0] = scale;
+}
 @end
 

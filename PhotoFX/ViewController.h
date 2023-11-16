@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
 #import <PhotosUI/PhotosUI.h>
+#import "KSMetalView.h"
 
 struct KSImageEditor;
 //TODO
@@ -28,6 +29,8 @@ struct KSImageEditor;
 @property (weak, nonatomic) IBOutlet UISlider *slider1;
 @property (weak, nonatomic) IBOutlet UISlider *slider2;
 - (IBAction)onSlideTwo:(id)sender;
+
+@property (weak, nonatomic) IBOutlet KSMetalView *metalView;
 
 @end
 
