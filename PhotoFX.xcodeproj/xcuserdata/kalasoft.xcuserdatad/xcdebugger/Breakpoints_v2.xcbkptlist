@@ -374,8 +374,8 @@
             filePath = "PhotoFX/ViewController.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "-picker:didFinishPicking:"
             landmarkType = "7">
             <Locations>
@@ -452,8 +452,8 @@
             filePath = "PhotoFX/ViewController.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "-picker:didFinishPicking:"
             landmarkType = "7">
             <Locations>

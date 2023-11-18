@@ -6,7 +6,7 @@
 //
 
 #import "KSTextureRenderer.h"
-#import "FilterCommon.h"
+#import "FilterCommon.hpp"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*generally 0.0 - 1.0*/
 -(void) setLogContrastScale:(float)scale;
+
+-(void) setImage:(const char*) url;
+
+-(void) updateFilterParams:(FilterParams)params;
+
+-(void)setActiveFragShader:(std::string)frag;
 
 @end
 

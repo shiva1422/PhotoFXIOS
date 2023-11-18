@@ -106,6 +106,7 @@
 		C2D57CC22B046800002DCE53 /* FilterCommon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FilterCommon.hpp; sourceTree = "<group>"; };
 		C2D57CC42B058A3C002DCE53 /* EditController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EditController.cpp; sourceTree = "<group>"; };
 		C2D57CC52B058A3C002DCE53 /* EditController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EditController.hpp; sourceTree = "<group>"; };
+		C2D57CC72B06F748002DCE53 /* Schedule.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Schedule.md; sourceTree = "<group>"; };
 		C2E6107D2ADA4465001F873F /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		C2E6107E2ADA459A001F873F /* KSTextureRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSTextureRenderer.h; sourceTree = "<group>"; };
 		C2E6107F2ADA459A001F873F /* KSTextureRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = KSTextureRenderer.mm; sourceTree = "<group>"; };
@@ -268,6 +269,7 @@
 				C29875A12ABEB6E800081209 /* LaunchScreen.storyboard */,
 				C29875A42ABEB6E800081209 /* Info.plist */,
 				C29875A52ABEB6E800081209 /* main.m */,
+				C2D57CC72B06F748002DCE53 /* Schedule.md */,
 			);
 			path = PhotoFX;
 			sourceTree = "<group>";

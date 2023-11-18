@@ -19,15 +19,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a04-bs-XfE" customClass="KSMetalView">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OI-2r-bO8">
-                                        <rect key="frame" x="9" y="0.0" width="74" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="import"/>
-                                        <connections>
-                                            <action selector="onImportImageClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Zl-cs-WC3"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNM-en-y9W">
                                         <rect key="frame" x="157" y="0.0" width="56" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -37,39 +28,152 @@
                                             <action selector="onBrowseFilesClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V3r-fY-XGC"/>
                                         </connections>
                                     </button>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zSZ-oy-PyT">
-                                        <rect key="frame" x="-2" y="633" width="389" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zSZ-oy-PyT">
+                                        <rect key="frame" x="-2" y="613" width="397" height="31"/>
                                         <connections>
-                                            <action selector="onSlideOne:" destination="BYZ-38-t0r" eventType="valueChanged" id="u0B-Vv-nNO"/>
+                                            <action selector="onGSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="CbB-q7-1fV"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9B4-DY-G2B">
-                                        <rect key="frame" x="6" y="686" width="381" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9B4-DY-G2B">
+                                        <rect key="frame" x="-2" y="651" width="397" height="31"/>
                                         <connections>
-                                            <action selector="onSlideTwo:" destination="BYZ-38-t0r" eventType="valueChanged" id="DYe-El-LD4"/>
+                                            <action selector="onRSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="aM4-tG-GhB"/>
                                         </connections>
                                     </slider>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="II0-oG-OY3">
+                                        <rect key="frame" x="0.0" y="728" width="393" height="32"/>
+                                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                        <segments>
+                                            <segment title="Intensity"/>
+                                            <segment title="Auto"/>
+                                            <segment title="HSI"/>
+                                            <segment title="blur"/>
+                                            <segment title="transform"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="onMainOptionChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="ro0-4y-hg8"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rRB-rt-l1E">
+                                        <rect key="frame" x="0.0" y="689" width="393" height="32"/>
+                                        <segments>
+                                            <segment title="log"/>
+                                            <segment title="power"/>
+                                            <segment title="bright"/>
+                                            <segment title="slice"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="onSubOptionChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="5jj-eE-cD7"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OI-2r-bO8">
+                                        <rect key="frame" x="8" y="0.0" width="66" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="import"/>
+                                        <connections>
+                                            <action selector="onImportImageClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Zl-cs-WC3"/>
+                                        </connections>
+                                    </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wy9-EL-ooH">
+                                        <rect key="frame" x="-2" y="567" width="397" height="31"/>
+                                        <connections>
+                                            <action selector="onBSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="2pP-q8-Ez8"/>
+                                        </connections>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kYY-Sj-bPO">
+                                        <rect key="frame" x="-2" y="521" width="397" height="31"/>
+                                        <connections>
+                                            <action selector="onASlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="gzg-BK-ZT6"/>
+                                        </connections>
+                                    </slider>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Au9-d5-j3O">
+                                        <rect key="frame" x="0.0" y="474" width="393" height="32"/>
+                                        <segments>
+                                            <segment title="rgb"/>
+                                            <segment title="r"/>
+                                            <segment title="g"/>
+                                            <segment title="b"/>
+                                            <segment title="rg"/>
+                                            <segment title="gb"/>
+                                            <segment title="rb"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="onSliderFlagChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="EmU-EK-cq8"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="sliderLockSwitch" translatesAutoresizingMaskIntoConstraints="NO" id="vvc-VK-9rM">
+                                        <rect key="frame" x="0.0" y="435" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onSliderLockChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="eDP-Xb-s9w"/>
+                                        </connections>
+                                    </switch>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="graySwitch" translatesAutoresizingMaskIntoConstraints="NO" id="15I-kn-2eS">
+                                        <rect key="frame" x="344" y="435" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onGrayScaleSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="ilC-ER-CoA"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="zSZ-oy-PyT" firstAttribute="leading" secondItem="a04-bs-XfE" secondAttribute="leading" id="16X-yH-LDx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wy9-EL-ooH" secondAttribute="trailing" id="2uQ-hb-sX9"/>
+                                    <constraint firstItem="II0-oG-OY3" firstAttribute="leading" secondItem="a04-bs-XfE" secondAttribute="leading" id="4oF-sA-nsl"/>
+                                    <constraint firstItem="Au9-d5-j3O" firstAttribute="top" secondItem="vvc-VK-9rM" secondAttribute="bottom" constant="8" id="7PE-vy-vkD"/>
+                                    <constraint firstItem="kYY-Sj-bPO" firstAttribute="top" secondItem="Au9-d5-j3O" secondAttribute="bottom" constant="8" id="A4M-Xr-kFE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Au9-d5-j3O" secondAttribute="trailing" id="AX9-3v-rez"/>
+                                    <constraint firstItem="rRB-rt-l1E" firstAttribute="leading" secondItem="a04-bs-XfE" secondAttribute="leading" id="AdW-0i-nRv"/>
+                                    <constraint firstAttribute="trailing" secondItem="zSZ-oy-PyT" secondAttribute="trailing" id="B3a-pU-mpT"/>
+                                    <constraint firstItem="9B4-DY-G2B" firstAttribute="leading" secondItem="a04-bs-XfE" secondAttribute="leading" id="Bxv-sE-xgu"/>
+                                    <constraint firstItem="Au9-d5-j3O" firstAttribute="top" secondItem="15I-kn-2eS" secondAttribute="bottom" constant="8" id="DkO-OO-jlt"/>
+                                    <constraint firstItem="kYY-Sj-bPO" firstAttribute="top" secondItem="Au9-d5-j3O" secondAttribute="bottom" constant="16" id="Gvl-26-qKz"/>
+                                    <constraint firstAttribute="trailing" secondItem="zSZ-oy-PyT" secondAttribute="trailing" id="Hhy-ep-d8Q"/>
+                                    <constraint firstItem="9B4-DY-G2B" firstAttribute="top" secondItem="zSZ-oy-PyT" secondAttribute="bottom" constant="8" id="Jah-P8-ZxJ"/>
+                                    <constraint firstItem="vvc-VK-9rM" firstAttribute="leading" secondItem="a04-bs-XfE" secondAttribute="leading" id="K4s-ze-KCi"/>
+                                    <constraint firstItem="9OI-2r-bO8" firstAttribute="top" secondItem="a04-bs-XfE" secondAttribute="top" id="LJB-uq-gfg"/>
+                                    <constraint firstAttribute="bottom" secondItem="II0-oG-OY3" secondAttribute="bottom" id="Pcr-PB-Umn"/>
+                                    <constraint firstItem="Wy9-EL-ooH" firstAttribute="top" secondItem="kYY-Sj-bPO" secondAttribute="bottom" constant="16" id="TsP-iQ-7sh"/>
+                                    <constraint firstItem="Au9-d5-j3O" firstAttribute="leading" secondItem="a04-bs-XfE" secondAttribute="leading" id="YJP-et-rzd"/>
+                                    <constraint firstAttribute="trailing" secondItem="9B4-DY-G2B" secondAttribute="trailing" id="aGc-qb-6Xf"/>
+                                    <constraint firstAttribute="trailing" secondItem="II0-oG-OY3" secondAttribute="trailing" id="aNd-1l-Zpa"/>
+                                    <constraint firstAttribute="trailing" secondItem="15I-kn-2eS" secondAttribute="trailing" id="c2e-K1-awd"/>
+                                    <constraint firstAttribute="trailing" secondItem="rRB-rt-l1E" secondAttribute="trailing" id="cTK-oL-i6O"/>
+                                    <constraint firstAttribute="trailing" secondItem="kYY-Sj-bPO" secondAttribute="trailing" id="cys-6h-zdX"/>
+                                    <constraint firstItem="zSZ-oy-PyT" firstAttribute="top" secondItem="Wy9-EL-ooH" secondAttribute="bottom" constant="16" id="dql-l9-xjU"/>
+                                    <constraint firstItem="9B4-DY-G2B" firstAttribute="centerX" secondItem="zSZ-oy-PyT" secondAttribute="centerX" id="f5l-3d-TCw"/>
+                                    <constraint firstItem="kYY-Sj-bPO" firstAttribute="top" secondItem="Au9-d5-j3O" secondAttribute="bottom" constant="16" id="fD9-he-Qho"/>
+                                    <constraint firstItem="II0-oG-OY3" firstAttribute="top" secondItem="rRB-rt-l1E" secondAttribute="bottom" constant="8" id="fKL-wb-BBu"/>
+                                    <constraint firstItem="rRB-rt-l1E" firstAttribute="top" secondItem="9B4-DY-G2B" secondAttribute="bottom" constant="8" id="jLB-Sv-FbX"/>
+                                    <constraint firstItem="zSZ-oy-PyT" firstAttribute="leading" secondItem="a04-bs-XfE" secondAttribute="leading" id="jxu-QV-bMn"/>
+                                    <constraint firstItem="Wy9-EL-ooH" firstAttribute="leading" secondItem="a04-bs-XfE" secondAttribute="leading" constant="8" id="kTs-9C-fu6"/>
+                                    <constraint firstAttribute="bottom" secondItem="II0-oG-OY3" secondAttribute="bottom" id="mj7-cr-x3V"/>
+                                    <constraint firstItem="zSZ-oy-PyT" firstAttribute="top" secondItem="Wy9-EL-ooH" secondAttribute="bottom" constant="16" id="rEv-4d-ySJ"/>
+                                    <constraint firstItem="kYY-Sj-bPO" firstAttribute="leading" secondItem="a04-bs-XfE" secondAttribute="leading" id="zLf-lg-ga1"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="a04-bs-XfE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="17s-lF-JmT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a04-bs-XfE" secondAttribute="bottom" id="2KE-qp-qNP"/>
                             <constraint firstItem="a04-bs-XfE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="44Y-EN-oos"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a04-bs-XfE" secondAttribute="trailing" id="Iqc-uk-t9t"/>
+                            <constraint firstItem="a04-bs-XfE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="h0C-6q-CFo"/>
                             <constraint firstItem="a04-bs-XfE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mzQ-Yj-KuJ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="ImportButton" destination="9OI-2r-bO8" id="ssN-fO-eVs"/>
+                        <outlet property="aSlider" destination="kYY-Sj-bPO" id="uZL-px-vQS"/>
+                        <outlet property="bSlider" destination="Wy9-EL-ooH" id="INc-ak-Can"/>
                         <outlet property="fileButton" destination="TNM-en-y9W" id="3va-rF-rKt"/>
+                        <outlet property="gSlider" destination="zSZ-oy-PyT" id="BcN-gA-Xfh"/>
+                        <outlet property="graySwitch" destination="15I-kn-2eS" id="JBp-V0-dUt"/>
                         <outlet property="metalView" destination="a04-bs-XfE" id="3n8-pq-9sv"/>
-                        <outlet property="slider1" destination="zSZ-oy-PyT" id="R2S-WM-zkF"/>
-                        <outlet property="slider2" destination="9B4-DY-G2B" id="gmg-Br-674"/>
+                        <outlet property="rSlider" destination="9B4-DY-G2B" id="N40-sy-Vpt"/>
+                        <outlet property="sliderFlagsSegment" destination="Au9-d5-j3O" id="QIX-7y-t3e"/>
+                        <outlet property="sliderLock" destination="vvc-VK-9rM" id="8B8-Ao-2E9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -80,6 +184,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

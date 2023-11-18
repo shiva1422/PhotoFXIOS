@@ -13,11 +13,19 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "KSLog.hpp"
 #import "KSFilterRenderer.h"
+#include "FilterCommon.hpp"
 
 @interface ViewController ()
 {
-    float slider1Value;
+    std::mutex filterLock;
+    ImageEditContext filter;
     
+    float r,g,b,a;
+    bool grayScale,channelLock;
+    //flags below indicate if editing is enabled for channels
+    bool rEnable,bEnable,gEnable,AEnable;
+    std::string mainOption,subOption;
+    //TODO default;
 }
 
 @property(strong,nonatomic) Editorpreview* preview;
@@ -33,11 +41,16 @@
 {
     
     [super viewDidLoad];
-    _slider1.maximumValue = 10.0;
-    _slider1.minimumValue = 0.0;
-    _slider2.maximumValue = 1.0;
-    _slider2.minimumValue = 0.0;
-    
+    _rSlider.maximumValue = 5.0;
+    _rSlider.minimumValue = 0.0;
+    _gSlider.maximumValue = 5.0;
+    _gSlider.minimumValue = 0.0;
+    _bSlider.maximumValue = 5.0;
+    _bSlider.minimumValue = 0.0;
+    _aSlider.maximumValue = 5.0;
+    _aSlider.minimumValue = 0.0;
+    mainOption = "Intensity";
+    subOption = "log";
     // Do any additional setup after loading the view.
    // _preview = [[Editorpreview alloc] initWithFrame:self.view.bounds];
    // [self.view addSubview:_preview];
@@ -46,6 +59,7 @@
     _filterRenderer = (KSFilterRenderer *)_metalView.delegate;
     imageEditor = new KSImageEditor(self.view.bounds.size.width, self.view.frame.size.height);
     KSLogI("View did load");
+    
     //imageEditor->setResolution();
    // [FileImporter authorizePhotosAccess];
     
@@ -110,7 +124,9 @@
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     
-                    self->imageEditor->addImage(url.absoluteString.UTF8String);
+                    //self->imageEditor->addImage(url.absoluteString.UTF8String);
+                    _filterRenderer = (KSFilterRenderer *)_metalView.delegate;
+                    [_filterRenderer setImage:url.absoluteString.UTF8String];
                     [picker dismissViewControllerAnimated:YES completion:nil];
 
                 });
@@ -139,13 +155,7 @@
     
     UISlider* slider = sender;
     KSLogD("Slider value %f",slider.value);
-    if(slider1Value != slider.value)
-    {
-        slider1Value = slider.value;
-        _filterRenderer = (KSFilterRenderer *)_metalView.delegate;
-        [_filterRenderer setLogContrastScale:slider1Value];
-        
-    }
+    
 }
 
 - (IBAction)onBrowseFilesClick:(id)sender {
@@ -187,5 +197,175 @@
   */
 
 - (IBAction)onSlideTwo:(id)sender {
+}
+- (IBAction)onMainOptionChange:(id)sender {
+    
+    UISegmentedControl *segment = (UISegmentedControl *)sender;
+    
+    NSInteger index = [segment selectedSegmentIndex];
+    
+    mainOption = [segment titleForSegmentAtIndex:index].UTF8String;
+    
+    KSLogD("on mainoption changed %s",mainOption.c_str());
+    //todo change the suboption segments;
+    
+}
+
+- (IBAction)onSubOptionChange:(id)sender {
+    UISegmentedControl *segment = (UISegmentedControl *)sender;
+    
+    NSInteger index = [segment selectedSegmentIndex];
+    subOption = [segment titleForSegmentAtIndex:index].UTF8String;
+    
+    KSLogD("on suboption changed %s",subOption.c_str());
+    
+    std::string shader = ImageEditContext::getFragmentShaderName(mainOption, subOption);
+    [self setShader:shader];
+    
+}
+- (IBAction)onSliderFlagChanged:(id)sender {
+    UISegmentedControl *sliderFlag = (UISegmentedControl *)sender;
+    switch(sliderFlag.selectedSegmentIndex)
+    {
+       // case 0 : //rgb
+            
+    }
+    
+    
+}
+- (IBAction)onSliderLockChange:(id)sender {
+    
+    channelLock != channelLock;//TODO update any Params as necessary
+    
+}
+- (IBAction)onGrayScaleSwitch:(id)sender {
+    
+    UISwitch *graySwitch = (UISwitch *)sender;
+
+    if(graySwitch.isOn)
+    {
+        filter.grayScaleSwitch = true;
+        KSLogD("GrayScale On");
+        _aSlider.hidden = false;
+        _gSlider.hidden = false;
+        _bSlider.hidden = false;
+        filter.channel = EActiveChannel::RGB;
+        
+    }
+    else
+    {
+        filter.grayScaleSwitch = false;
+        KSLogD("GrayScale Off");
+        _aSlider.hidden = true;
+        _gSlider.hidden = true;
+        _bSlider.hidden = true;
+        filter.channel = EActiveChannel::RGB;
+    }
+    
+
+}
+- (IBAction)onRSlider:(id)sender {
+    UISlider* slider = sender;
+    KSLogD("Slider value r %f",slider.value);
+    [self onUpdateChannelParam:slider.value channel:EActiveChannel::R];
+   
+
+}
+- (IBAction)onASlider:(id)sender {
+    UISlider* slider = sender;
+    KSLogD("Slider value a %f",slider.value);
+    [self onUpdateChannelParam:slider.value channel:EActiveChannel::A];
+
+    
+}
+- (IBAction)onBSlider:(id)sender {
+    UISlider* slider = sender;
+    KSLogD("Slider value b  %f",slider.value);
+    [self onUpdateChannelParam:slider.value channel:EActiveChannel::B];
+
+    
+}
+
+- (IBAction)onGSlider:(id)sender {
+    
+    UISlider* slider = sender;
+    KSLogD("Slider value g%f",slider.value);
+    [self onUpdateChannelParam:slider.value channel:EActiveChannel::G];
+
+   
+}
+
+-(void)initParams
+{
+     r = 1.0,g=1.0,b=1.0,a=1.0;
+     grayScale = false,channelLock = false;
+     rEnable = true,bEnable = true,gEnable = true,AEnable = true;
+}
+
+-(void)onUpdateChannelParam:(float) paramVal channel:(EActiveChannel)channelType
+{
+    if(grayScale || channelLock)
+    {
+        r = g = b = paramVal;
+    }
+    else
+    {
+      switch(channelType)
+      {
+            case EActiveChannel::R:
+              r = paramVal;
+              break;
+            case EActiveChannel::G:
+              g = paramVal;
+              break;
+            case EActiveChannel::B:
+              b = paramVal;
+              break;
+            case EActiveChannel::A:
+              a = paramVal;
+            break;
+          default:
+              assert(false);
+      }
+    }
+    
+    [self updateFilter];
+}
+
+-(void)updateFilter
+{
+    if(channelLock || grayScale)
+    {
+        _rSlider.value = r;
+        _gSlider.value = g;
+        _bSlider.value = b;
+        _aSlider.value = a;
+        
+    }
+    
+    FilterParams params;//instead KeepMember param and update only changed values;
+    
+    KSLogD("update UI Filter %f %f %f %f",r,g,b,a);
+    params.scaleFactor[0] = r;
+    params.scaleFactor[1] = g;
+    params.scaleFactor[2] = b;
+    params.scaleFactor[3] = a;
+    
+    params.bGrayScale = grayScale;
+    params.flags[0] = rEnable ? 1 : 0;
+    params.flags[1] = bEnable ? 1 : 0;
+    params.flags[2] = gEnable ? 1 : 0;
+    params.flags[3] = AEnable ? 1 : 0;
+    
+    _filterRenderer = (KSFilterRenderer *)_metalView.delegate;
+    [_filterRenderer updateFilterParams:params];
+    
+}
+
+-(void)setShader:(std::string) shader
+{
+    //TODO reset FilterParams
+    _filterRenderer = (KSFilterRenderer *)_metalView.delegate;
+    [_filterRenderer setActiveFragShader:shader];
 }
 @end

@@ -25,12 +25,38 @@ struct KSImageEditor;
 
 - (IBAction)onBrowseFilesClick:(id)sender;
 
-- (IBAction)onSlideOne:(id)sender;
-@property (weak, nonatomic) IBOutlet UISlider *slider1;
-@property (weak, nonatomic) IBOutlet UISlider *slider2;
-- (IBAction)onSlideTwo:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISlider *rSlider;
+@property (weak, nonatomic) IBOutlet UISlider *gSlider;
+@property (weak, nonatomic) IBOutlet UISlider *bSlider;
+@property (weak, nonatomic) IBOutlet UISlider *aSlider;
+
+- (IBAction)onRSlider:(id)sender;
+- (IBAction)onGSlider:(id)sender;
+- (IBAction)onBSlider:(id)sender;
+- (IBAction)onASlider:(id)sender;
+
+/*
+ options
+ */
+@property (weak, nonatomic) IBOutlet UISegmentedControl *mainOptions;
+- (IBAction)onMainOptionChange:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *subOptions;
+
+- (IBAction)onSubOptionChange:(id)sender;
 
 @property (weak, nonatomic) IBOutlet KSMetalView *metalView;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sliderFlagsSegment;
+- (IBAction)onSliderFlagChanged:(id)sender;
+
+//locked means rgb change same;
+@property (weak, nonatomic) IBOutlet UISwitch *sliderLock;
+- (IBAction)onSliderLockChange:(id)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *graySwitch;
+- (IBAction)onGrayScaleSwitch:(id)sender;
+
 
 @end
 

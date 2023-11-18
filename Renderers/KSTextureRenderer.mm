@@ -91,6 +91,7 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     if(!self.renderPipelineState)
     {
         NSLog(@"Error Occured when creating render pipeline state : %@", err);
+        assert(false);
     }
     self.commandQueue = [self.device newCommandQueue];
 }
@@ -198,7 +199,6 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     return texture;
     
 }
-
 
 
 @end

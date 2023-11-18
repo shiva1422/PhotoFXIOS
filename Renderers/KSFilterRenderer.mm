@@ -11,7 +11,8 @@
 #include "memutils.h"
 #include "FilterCommon.hpp"
 #include <mutex>
-
+#include "KSLog.hpp"
+#include "KSImageLoader.hpp"
 #define flightBufferCount 3
 
 static const uint32_t KSBufferAlignment = 256;
@@ -32,6 +33,8 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
 {
     FilterParams filterParams;
     std::mutex filterLock;
+    std::string previousShader;
+    std::string currentShader;
 }
 @property (strong,nonatomic) id<MTLDevice> device;
 @property (strong,nonatomic) id<MTLBuffer> vertexBuffer;
@@ -56,7 +59,6 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
 {
     if((self = [super init]))
     {
-         filterParams.scaleFactor[0] = 20.0;
         _device = MTLCreateSystemDefaultDevice();
         _displaySemaphore = dispatch_semaphore_create(flightBufferCount);
         [self createPipeline];
@@ -70,7 +72,7 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
 {
     self.commandQueue = [self.device newCommandQueue];
     
-    _texture = [self loadTexture:nil];//for now static load;
+    _texture = [self loadTexture:"nature.jpg"];//for now static load;
     
     NSError *libraryErr = nil;
     //NSString *libraryFile = [[NSBundle mainBundle] pathForResource:@"texture" ofType:@"metallib"];
@@ -81,10 +83,11 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     }
     //id<MTLFunction> vertextFunc = [library newFunctionWithName:@"vert"];
    // id<MTLFunction> fragmentFunc = [library newFunctionWithName:@"frag"];
-    
+    previousShader = "frag";
+    currentShader = "frag";
     MTLRenderPipelineDescriptor *pipelineDescriptor = [MTLRenderPipelineDescriptor new];
-    pipelineDescriptor.vertexFunction = [library newFunctionWithName:@"vertIntensity"];
-    pipelineDescriptor.fragmentFunction =[library newFunctionWithName:@"logIntensity"];
+    pipelineDescriptor.vertexFunction = [library newFunctionWithName:@"vert"];
+    pipelineDescriptor.fragmentFunction =[library newFunctionWithName:@"frag"];
     pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
     pipelineDescriptor.depthAttachmentPixelFormat = MTLPixelFormatDepth32Float;
     
@@ -125,6 +128,7 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
    
     dispatch_semaphore_wait(self.displaySemaphore, DISPATCH_TIME_FOREVER);
     [self updateParams];
+    [self updatePipelineDescription];//change shader functions;
     view.clearColor = MTLClearColorMake(0.0, 0.0, 0.0, 1);
     
     //update MVP
@@ -162,9 +166,93 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     [commandBuffer commit];
 }
 
--(id<MTLTexture>)loadTexture: (NSURL *)url
+-(void)updatePipelineDescription
 {
-    UIImage *image = [UIImage imageNamed:@"nature.jpg"];
+    if(previousShader != currentShader)
+    {
+        std::string shader;
+        {
+            std::unique_lock<std::mutex> lock(filterLock);
+            shader = currentShader;
+        }
+        NSString *fragShader = [NSString stringWithUTF8String:shader.c_str()];
+        NSError *libraryErr = nil;
+        //NSString *libraryFile = [[NSBundle mainBundle] pathForResource:@"texture" ofType:@"metallib"];
+        id<MTLLibrary> library = [self.device newDefaultLibrary];//TODO no need new library;
+        if(!library)
+        {
+            NSLog(@"Library error : %@" , libraryErr.localizedDescription);
+        }
+        MTLRenderPipelineDescriptor *pipelineDescriptor = [MTLRenderPipelineDescriptor new];
+        pipelineDescriptor.vertexFunction = [library newFunctionWithName:@"vertIntensity"];
+        pipelineDescriptor.fragmentFunction =[library newFunctionWithName:fragShader];
+        pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
+        pipelineDescriptor.depthAttachmentPixelFormat = MTLPixelFormatDepth32Float;
+
+        
+        NSError *err = nil;
+        self.renderPipelineState = [self.device newRenderPipelineStateWithDescriptor:pipelineDescriptor error:&err];//TODO check clearing
+        
+        if(!self.renderPipelineState)
+        {
+            NSLog(@"Error Occured when creating render pipeline state : %@", err);
+            return;
+        }
+    }
+    previousShader = currentShader;
+   
+}
+
+-(void)updateParams
+{
+    // filterParams.scaleFactor[0] = 2.0;//update filter parmas // update animations
+    std::unique_lock<std::mutex> lock(filterLock);
+   // KSLogD("updating patams scaleFactor a %f",filterParams.scaleFactor[0]);
+    memcpy((uint8_t *)[self.filterParamBuffer contents] ,&filterParams ,sizeof(filterParams));//TODO only if changed;
+    
+}
+
+-(void)updateMVP:(KSMetalView *)view duration:(NSTimeInterval)duration
+{
+    /*
+     self.time += duration;
+     self.rotationx = ;
+     float scaleFactor = ;calculate
+     const vector_float3 xAxis = {1,0,0};
+     const vector_float3 yAxis = {0,1,0};
+     const matrix_float4x4 xRot = matrix_float4x4_rotation(xAxis , self.rotationX);
+     const matrix_float4x4 yRot = matrix_float4x4_rotation(yAxis, self.rotationY);
+     const matrix_float4x4 scale = matrix_float4x4_uniform_scale(scaleFactor);
+     const matrix_float4x4 modelMatrix = matrix_multiply(matrix_multiply(xRot,yRot),scale);
+     
+     const vector_float3 cameraTranslation = {0,0,-5};
+     const matrix_float4x4 viewMatrix = matrix_float4x4_translation(cameraTranslation);
+     
+     const CGSizedrawableSize = view.metalLayer.drawableSize;
+     const float spect = drawableSize.widht/drawableSize.height;
+     const float fov = (3*M_PI)/5;
+     const float near = 1;
+     const float far = 100;
+     const matrix_float4x4 projectionMatrix = matrix_float4x4_perspective(aspect,fov,near,far);
+     
+     KUniforms uniforms;
+     const NSUInteger uniformBufferOffset = AlignUp(sizeof(KUniforms),KSBufferAlignment) *self.bufferIndex;
+     memcpy((uint8_t *)[self.unifromBuffer contents] + uniformBufferOffset,&uniforms ,sizeof(uniforms));
+     */
+}
+
+-(void)setLogContrastScale:(float)scale
+{
+    std::unique_lock<std::mutex> lock(filterLock);
+    filterParams.scaleFactor[0] = scale;
+}
+
+
+-(id<MTLTexture>)loadTexture: (const char *)url
+{
+    NSString *path = [NSString stringWithUTF8String:url];
+    
+    UIImage *image = [UIImage imageNamed:path];
     
     //access pixels and invert texture as metal texture starts from top
     assert(image != nil);
@@ -210,46 +298,49 @@ const KBEIndex indices[] = {0,2,1,0,3,2};
     return texture;
     
 }
--(void)updateParams
+-(void)updateFilterParams:(FilterParams)params
 {
-    // filterParams.scaleFactor[0] = 2.0;
     std::unique_lock<std::mutex> lock(filterLock);
-    memcpy((uint8_t *)[self.filterParamBuffer contents] ,&filterParams ,sizeof(filterParams));
+    filterParams = params;
+}
+
+-(void) setImage:(const char*) url
+{
+    //TODO check safety on UI thread;
+    KSLogD("FilterRenderer set image %s",url);
+    KSImage *image = KSImageLoader::loadImage(url);//Better than this use above load image method direct copy
+    assert(image != NULL);
+    
+    MTLTextureDescriptor *textDesc = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:MTLPixelFormatRGBA8Unorm width:image->getWidth() height:image->getHeight() mipmapped:NO];
+    
+    //create texture with descriptor
+    id<MTLTexture> texture = [self.device newTextureWithDescriptor:textDesc];
+    
+    /*
+     Setting the data in the texture is also quite simple.Create MTLRegion that represents the entire texture and tell the texture to replace that region with raw image bits  previously retrieved from the context.
+     */
+    
+    MTLRegion region = MTLRegionMake2D(0, 0, image->getWidth(), image->getHeight());
+    [texture replaceRegion:region mipmapLevel:0 withBytes:image->getData() bytesPerRow:image->getWidth()*4];
+    
+    _texture = texture;//TODO -CHeck clear _texture conditions;//TODO reuse texture;
+    
+    [self scaleVerticesToTextureAspect];//TODO
+    
+    delete image;
+}
+
+-(void)scaleVerticesToTextureAspect
+{
+    //change vertices accordingly;//TODO
+    //based on views dimensions
     
 }
 
--(void)updateMVP:(KSMetalView *)view duration:(NSTimeInterval)duration
-{
-    /*
-     self.time += duration;
-     self.rotationx = ;
-     float scaleFactor = ;calculate
-     const vector_float3 xAxis = {1,0,0};
-     const vector_float3 yAxis = {0,1,0};
-     const matrix_float4x4 xRot = matrix_float4x4_rotation(xAxis , self.rotationX);
-     const matrix_float4x4 yRot = matrix_float4x4_rotation(yAxis, self.rotationY);
-     const matrix_float4x4 scale = matrix_float4x4_uniform_scale(scaleFactor);
-     const matrix_float4x4 modelMatrix = matrix_multiply(matrix_multiply(xRot,yRot),scale);
-     
-     const vector_float3 cameraTranslation = {0,0,-5};
-     const matrix_float4x4 viewMatrix = matrix_float4x4_translation(cameraTranslation);
-     
-     const CGSizedrawableSize = view.metalLayer.drawableSize;
-     const float spect = drawableSize.widht/drawableSize.height;
-     const float fov = (3*M_PI)/5;
-     const float near = 1;
-     const float far = 100;
-     const matrix_float4x4 projectionMatrix = matrix_float4x4_perspective(aspect,fov,near,far);
-     
-     KUniforms uniforms;
-     const NSUInteger uniformBufferOffset = AlignUp(sizeof(KUniforms),KSBufferAlignment) *self.bufferIndex;
-     memcpy((uint8_t *)[self.unifromBuffer contents] + uniformBufferOffset,&uniforms ,sizeof(uniforms));
-     */
-}
--(void)setLogContrastScale:(float)scale
+-(void)setActiveFragShader:(std::string)frag
 {
     std::unique_lock<std::mutex> lock(filterLock);
-    filterParams.scaleFactor[0] = scale;
+    currentShader = frag;
 }
 @end
 

@@ -17,8 +17,14 @@ class KSImage{
     
 public:
     
+    ~KSImage()
+    {
+        delete data;
+    }
     int getWidth(){return width;}
     int getHeight(){return height;}
+    uint8_t* getData(){return data;}
+    
     
 private:
     
