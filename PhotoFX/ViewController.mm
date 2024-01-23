@@ -219,7 +219,20 @@
     
     KSLogD("on suboption changed %s",subOption.c_str());
     
+    if(subOption == "contrast" || subOption == "slice")
+    {
+        _rSlider.maximumValue = 1.0;
+        _rSlider.minimumValue = 0.0;
+        _gSlider.maximumValue = 1.0;
+        _gSlider.minimumValue = 0.0;
+        _bSlider.maximumValue = 1.0;
+        _bSlider.minimumValue = 0.0;
+        _aSlider.maximumValue = 1.0;
+        _aSlider.minimumValue = 0.0;
+        KSLogE("Contrast strecthing make sure the r1<=r2,s1<=s2 follow monotonously increasing curve");
+    }
     std::string shader = ImageEditContext::getFragmentShaderName(mainOption, subOption);
+    
     [self setShader:shader];
     
 }

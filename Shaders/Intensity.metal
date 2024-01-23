@@ -121,4 +121,93 @@ fragment float4 powerIntensity(Vertex inVertex[[stage_in]] ,texture2d<float>text
     return sampledColor;
 }
 
+//in general  sure monotonously increaseing(r1 <= r2 and s1 <= s2 is assumed ) and each channel different r1,r2
+fragment float4 contrast(Vertex inVertex[[stage_in]] ,texture2d<float>text[[texture(0)]],constant FilterParams *filter[[buffer(2)]])
+{
+    constexpr sampler textureSampler(coord::normalized,address::repeat,filter::linear);
+    float4 P = text.sample(textureSampler, inVertex.UV);
+    
+    float r1 = filter->scaleFactor[0];
+    float s1 = filter->scaleFactor[1];
+    float r2 = filter->scaleFactor[2];
+    float s2 = filter->scaleFactor[3];
+
+    float slope1 = s1/r1;
+    float slope2 = (s2 - s1)/(r2-r1);//TODO inf,nan
+    float slope3 = (s2-1.0)/(r2-1.0);
+    
+    //r
+    if(P.r <= r1)
+    {
+        P.r = P.r * slope1;
+    }
+    else if(P.r >= r1 && P.r <= r2)
+    {
+        P.r = slope2*(P.r - r1) + s1;
+    }
+    else
+    {
+        P.r = slope3*(P.r - r2) + s2;
+    }
+    
+    //g
+    if(P.g <= r1)
+    {
+        P.g = P.g * slope1;
+    }
+    else if(P.g >= r1 && P.g <= r2)
+    {
+        P.g = slope2*(P.g - r1) + s1;
+    }
+    else
+    {
+        P.g = slope3*(P.g - r2) + s2;
+    }
+    
+    // b
+    
+    if(P.b <= r1)
+    {
+        P.b = P.b * slope1;
+    }
+    else if(P.b >= r1 && P.b <= r2)
+    {
+        P.b = slope2*(P.b - r1) + s1;
+    }
+    else
+    {
+        P.b = slope3*(P.b - r2) + s2;
+    }
+    
+     return P;
+}
+
+
+//todo slice separate channels,beeter with seperate channels
+fragment float4 slice(Vertex inVertex[[stage_in]] ,texture2d<float>text[[texture(0)]],constant FilterParams *filter[[buffer(2)]])
+{
+    constexpr sampler textureSampler(coord::normalized,address::repeat,filter::linear);
+    float4 P = text.sample(textureSampler, inVertex.UV);
+    
+    float r1 = filter->scaleFactor[0];
+    float r2 = filter->scaleFactor[1];
+    float s = filter->scaleFactor[2];
+
+    
+    //r
+    if(P.r >= r1 && P.r <= r2)// || gives intersting results too.
+    {
+        P.r = s;
+    }
+    if(P.g >= r1 && P.g <= r2)
+    {
+        P.g = s;
+    }
+    if(P.b >= r1 && P.b <= r2)
+    {
+        P.b = s;
+    }
+     return P;
+}
+
 

@@ -23,6 +23,14 @@ static void getIntensityFragName(std::string option,std::string &shader)
     {
         shader = "hsi";
     }
+    else if(option == "contrast")
+    {
+        shader = "contrast";
+    }
+    else if(option == "slice")
+    {
+        shader = "slice";
+    }
 }
 
 std::string ImageEditContext::getFragmentShaderName(std::string mainOption, std::string subOption)
